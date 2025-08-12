@@ -14,6 +14,7 @@ import Home from './pages/Home';
 import Bible from './pages/Bible';
 import DailyReadings from './pages/DailyReadings';
 import PrayerRequests from './pages/PrayerRequests';
+import Login from './pages/Login';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,6 +39,7 @@ function App() {
                   <Route path="/bible" element={<Bible />} />
                   <Route path="/readings" element={<DailyReadings />} />
                   <Route path="/prayers" element={<PrayerRequests />} />
+                  <Route path="/login" element={<Login />} />
                 </Routes>
               </main>
               <Footer />

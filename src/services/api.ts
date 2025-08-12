@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_BASE_URL = 'https://legendary-system-gpjj9545qw259q-5000.app.github.dev' || 'http://localhost:5000';
 
 // Create axios instance
 const api: AxiosInstance = axios.create({
@@ -15,8 +15,10 @@ const api: AxiosInstance = axios.create({
 api.interceptors.response.use(
   (response) => response.data,
   (error) => {
-    if (error.response?.status === 401) {
-      // Handle unauthorized access
+    if (
+      error.response?.status === 401 &&
+      window.location.pathname !== '/login'
+    ) {
       window.location.href = '/login';
     }
     return Promise.reject(error.response?.data || error.message);
